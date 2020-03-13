@@ -1,0 +1,22 @@
+{% comment %} {% load staticfiles %} {% endcomment %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Library</title>
+  </head>
+  <body>
+    <a href="{% url 'libraryapp:book_form' %}">Add Book</a>
+
+    <h1>Books</h1>
+
+    <ol>
+    {% for book in all_books %}
+        <li>
+            <a href="{% url 'libraryapp:book' book.id %}"> {{ book.title }} </a>
+    by {{book.author}} published in {{book.year}}
+        </li>
+    {% endfor %}
+    </ol>
+  </body>
+</html>
